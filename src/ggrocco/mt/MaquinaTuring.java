@@ -1,16 +1,14 @@
 package ggrocco.mt;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JTextArea;
-
-
 public class MaquinaTuring extends Thread{
-	
 	private String[] linguagem;
 	private String entrada;
 	private JTextArea saida;
-	private List<Estado> estados;
+	private final List<Estado> estados;
 	private int posicao;
 	private Fita fita;
 	private boolean estadoFinal = false;
@@ -63,7 +61,7 @@ public class MaquinaTuring extends Thread{
 				
 		while(!estadoFinal){
 			
-			// Pega a açao do ciclo.			
+			// Pega a aï¿½ao do ciclo.			
 			for(Acao acaoAtual : estados.get(estadoAtual).getAcoes()){
 				
 				printSaida("\nCiclo: "  +(++ciclo) );
@@ -75,8 +73,8 @@ public class MaquinaTuring extends Thread{
 				}	
 				
 				if(fita.ler() == acaoAtual.getLer()){
-					
-					String outSaida = "Estado: "+ (estadoAtual + 1) + " Fita: " + fita.toString() + " - Ação: " + acaoAtual.toString();					
+
+					String outSaida = "Estado: " + ( estadoAtual + 1 ) + " Fita: " + fita.toString() + " - Aï¿½ï¿½o: " + acaoAtual;
 					printSaida("\n" +  outSaida);					
 					
 					if(acaoAtual.getNovoEstado() == -1){
@@ -85,8 +83,8 @@ public class MaquinaTuring extends Thread{
 					}else{
 						estadoAtual = acaoAtual.getNovoEstado() - 1;
 					}
-					// Se o que ja ta na fita é igual ao que iria gravar
-					// não perde tempo gravando
+					// Se o que ja ta na fita ï¿½ igual ao que iria gravar
+					// nï¿½o perde tempo gravando
 					if(fita.ler() != acaoAtual.getGravar()){
 						fita.gravar(acaoAtual.getGravar());
 					}

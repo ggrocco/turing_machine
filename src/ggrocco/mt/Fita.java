@@ -38,18 +38,15 @@ public class Fita{
 		if(posicao < 0){
 			int inicio = (posicao * -1);
 			novaFita = contruirFitaNova(inicio + fita.length);
-			
-			for(int i = inicio; i < novaFita.length; i++){
-				novaFita[i] = fita[i - inicio];
-			}
+
+			if (novaFita.length - inicio >= 0)
+				System.arraycopy(fita, 0, novaFita, inicio, novaFita.length - inicio);
 			
 			posicao = 0;				
 		}
 		else if(posicao > fita.length -1){
 			novaFita = contruirFitaNova(posicao + 1);
-			for(int i = 0; i < fita.length; i++){
-				novaFita[i] = fita[i];
-			}
+			System.arraycopy(fita, 0, novaFita, 0, fita.length);
 		}
 		if(novaFita != null){
 			this.fita = novaFita;

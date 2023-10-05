@@ -1,11 +1,8 @@
 package ggrocco.mt;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
-import ggrocco.mt.Acao;
-import ggrocco.mt.Fita;
-import ggrocco.mt.MaquinaTuring;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestCase {
 	public void testMaquinaT1(){
@@ -23,9 +20,9 @@ public class TestCase {
 		assertEquals(acao.getGravar(), 'b');
 		assertEquals(acao.getMovimento(), '>');
 		assertEquals(acao.getNovoEstado(), -1);
-		
 
-		assertTrue(acao.equals(acao));
+
+        assertEquals(acao, acao);
 		assertEquals(acao.toString(), "a,b,>,-1" );		
 	}
 

@@ -1,24 +1,22 @@
 package ggrocco.mt;
 
-public class Acao{
+public class Acao {
 	int novoEstado = 0;
 	char ler = 'B';
 	char gravar = 'B';
 	char movimento = '>';
-	
-	public Acao(char ler, char gravar, char movimento, int novoEstado){
+
+	public Acao(char ler, char gravar, char movimento, int novoEstado) {
 		this.ler = ler;
 		this.gravar = gravar;
 		this.movimento = movimento;
 		this.novoEstado = novoEstado;
 	}
-	
+
 	@Override
 	public String toString() {
-		return ler + "," + gravar + "," + movimento + "," +  novoEstado;
+		return ler + "," + gravar + "," + movimento + "," + novoEstado;
 	}
-
-	
 
 	@Override
 	public int hashCode() {
@@ -27,8 +25,6 @@ public class Acao{
 		result = PRIME * result + ler;
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -39,12 +35,8 @@ public class Acao{
 		if (getClass() != obj.getClass())
 			return false;
 		final Acao other = (Acao) obj;
-		if (ler != other.ler)
-			return false;
-		return true;
+		return ler == other.ler;
 	}
-
-
 
 	public char getGravar() {
 		return gravar;
@@ -60,5 +52,5 @@ public class Acao{
 
 	public int getNovoEstado() {
 		return novoEstado;
-	}		
+	}
 }
